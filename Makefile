@@ -108,7 +108,7 @@ server: $(NAME_S) $(LJSONX) $(LIBSNDFX) $(LIBPORTAUDIOX)  #$(LIBMX)
 
 $(NAME_S): $(OBJS_SERVER) $(OBJS_HELP)
 	@make -sC $(LJSOND)
-	@clang $(CFLAGS) `pkg-config --cflags --libs gtk+-3.0` -I./Frameworks/GStreamer.framework/Versions/1.0/include/gstreamer-1.0 -I./Frameworks/GStreamer.framework/Versions/1.0/include -I./Frameworks/GStreamer.framework/Versions/1.0/include/glib-2.0 -I./Frameworks/GStreamer.framework/Versions/1.0/lib/glib-2.0/include -L./Frameworks/GStreamer.framework/Versions/1.0/lib  $(LMXA) $(LJSONA) $(OBJS_SERVER) $(OBJS_HELP) -o $@  $(SQLFLAGS) $(TLSFLAGS)
+	@clang $(CFLAGS) `pkg-config --cflags --libs gtk+-3.0` -I./Frameworks/GStreamer.framework/Versions/1.0/include/gstreamer-1.0 -I./Frameworks/GStreamer.framework/Versions/1.0/include -I./Frameworks/GStreamer.framework/Versions/1.0/include/glib-2.0 -I./Frameworks/GStreamer.framework/Versions/1.0/lib/glib-2.0/include -L./Frameworks/GStreamer.framework/Versions/1.0/lib  ./Frameworks/GStreamer.framework/Versions/1.0/lib/*.a   $(LMXA) $(LJSONA) $(OBJS_SERVER) $(OBJS_HELP) -o $@  $(SQLFLAGS) $(TLSFLAGS)
 	@printf "\r\33[2K$@\t   \033[32;1mcreated\033[0m\n"
 
 $(OBJD)/%.o: src/server/%.c $(INCS)
@@ -162,7 +162,7 @@ client: $(NAME_C) $(LIBSNDFX) $(LIBPORTAUDIOX) #$(LIBMX)
 
 
 $(NAME_C): $(OBJS_CLIENT) $(OBJS_HELP)
-	@clang $(CFLAGS) `pkg-config --cflags --libs gtk+-3.0` -I./Frameworks/GStreamer.framework/Versions/1.0/include/gstreamer-1.0 -I./Frameworks/GStreamer.framework/Versions/1.0/include -I./Frameworks/GStreamer.framework/Versions/1.0/include/glib-2.0 -I./Frameworks/GStreamer.framework/Versions/1.0/lib/glib-2.0/include -L./Frameworks/GStreamer.framework/Versions/1.0/lib ./Frameworks/GStreamer.framework/Versions/1.0/lib/libgstreamer-1.0.0.dylib  ./Frameworks/GStreamer.framework/Versions/1.0/lib/libglib-2.0.0.dylib  $(LMXA)  $(LJSONA) $(LIBSNDFA) -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework CoreServices -framework Carbon $(LIBPORTAUDIOA) $(OBJS_CLIENT) $(OBJS_HELP) -o $@ $(TLSFLAGS)
+	@clang $(CFLAGS) `pkg-config --cflags --libs gtk+-3.0` -I./Frameworks/GStreamer.framework/Versions/1.0/include/gstreamer-1.0 -I./Frameworks/GStreamer.framework/Versions/1.0/include -I./Frameworks/GStreamer.framework/Versions/1.0/include/glib-2.0 -I./Frameworks/GStreamer.framework/Versions/1.0/lib/glib-2.0/include -L./Frameworks/GStreamer.framework/Versions/1.0/lib ./Frameworks/GStreamer.framework/Versions/1.0/lib/*.a  $(LMXA)  $(LJSONA) $(LIBSNDFA) -framework CoreAudio -framework AudioToolbox -framework AudioUnit -framework CoreServices -framework Carbon $(LIBPORTAUDIOA) $(OBJS_CLIENT) $(OBJS_HELP) -o $@ $(TLSFLAGS)
 	@printf "\r\33[2K$@\t\t   \033[32;1mcreated\033[0m\n"
 
 
