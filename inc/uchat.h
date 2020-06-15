@@ -211,6 +211,7 @@ typedef struct  s_client_info {
     int socket;
     struct tls *tls_client;
     int auth_client;
+    int current_room;
     pthread_mutex_t mutex;
     t_data *data;
     int responce;

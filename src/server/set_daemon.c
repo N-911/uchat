@@ -12,6 +12,7 @@ static int set_rl(struct rlimit rl, struct sigaction sa) {
         close(i);
     return 0;
 }
+
 static int open_log(int *fd ) {
     if ((*fd = open("log_file", O_CREAT | O_WRONLY | O_TRUNC | O_APPEND,
                    S_IRWXU)) == -1)

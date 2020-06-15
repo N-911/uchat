@@ -1,0 +1,586 @@
+ip: 10.111.7.10
+socket = 4
+listen fd = 4
+server new client socket 7
+New connection from 10.111.7.10 65201
+client_sock = 7
+			work with client 7
+
+js_in_room: 
+---
+{ "type": 4, "login": "neo", "password": "1", "user_id": 1, "visual": 0, "audio": 0, "room_id": 0, "rooms": [ { "room_id": 0, "name": "General", "access": 1, "messages": [ { "id": 86, "user_id": 3, "data": "282475249", "login": "chat_bot", "add_info": 0 }, { "id": 85, "user_id": 3, "data": "16807", "login": "chat_bot", "add_info": 0 }, { "id": 80, "user_id": 3, "data": "143542612", "login": "chat_bot", "add_info": 0 }, { "id": 79, "user_id": 3, "data": "823378840", "login": "chat_bot", "add_info": 0 }, { "id": 78, "user_id": 3, "data": "16531729", "login": "chat_bot", "add_info": 0 } ] } ] }
+---
+server new client socket 8
+New connection from 10.111.7.10 65202
+client_sock = 8
+			work with client 8
+			work with client 8
+
+js_in_room: 
+---
+{ "type": 4, "login": "chat_bot1", "password": "ë¥—BÇ?} ≈çˆë\"ﬁCÛ_\u0005zòçñ\u0019ˆ”\u0013ÑÖ…¢\u0003", "user_id": 4, "visual": 0, "audio": 0, "room_id": 0, "rooms": [ { "room_id": 0, "name": "General", "access": 1, "messages": [ { "id": 86, "user_id": 3, "data": "282475249", "login": "chat_bot", "add_info": 0 }, { "id": 85, "user_id": 3, "data": "16807", "login": "chat_bot", "add_info": 0 }, { "id": 80, "user_id": 3, "data": "143542612", "login": "chat_bot", "add_info": 0 }, { "id": 79, "user_id": 3, "data": "823378840", "login": "chat_bot", "add_info": 0 }, { "id": 78, "user_id": 3, "data": "16531729", "login": "chat_bot", "add_info": 0 } ] } ] }
+---
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+Client 8 disconnected
+server new client socket 8
+New connection from 10.111.7.10 65211
+client_sock = 8
+			work with client 8
+Client 8 disconnected
+server new client socket 8
+New connection from 10.111.7.10 65219
+client_sock = 8
+			work with client 8
+Client 8 disconnected
+server new client socket 8
+New connection from 10.111.7.10 65221
+client_sock = 8
+			work with client 8
+			work with client 8
+
+js_in_room: 
+---
+{ "type": 4, "login": "botqwe", "password": "ë¥—BÇ?} ≈çˆë\"ﬁCÛ_\u0005zòçñ\u0019ˆ”\u0013ÑÖ…¢\u0003", "user_id": 2, "visual": 0, "audio": 0, "room_id": 0, "rooms": [ { "room_id": 0, "name": "General", "access": 1, "messages": [ ] } ] }
+---
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 7
+			work with client 8
+			work with client 7
+			work with client 8
+			work with client 7
+			work with client 7
+			work with client 7
+			work with client 7
+			work with client 8
+			work with client 7
+			work with client 7
+			work with client 7
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 7
+Readed 0 bytes
+			work with client 7
+Client 7 disconnected
+			work with client 8
+			work with client 8
+			work with client 8
+server new client socket 7
+New connection from 10.111.7.10 65223
+client_sock = 7
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 7
+
+js_in_room: 
+---
+{ "type": 4, "login": "neo", "password": "1", "user_id": 1, "visual": 0, "audio": 0, "room_id": 0, "rooms": [ { "room_id": 0, "name": "General", "access": 1, "messages": [ { "id": 42, "user_id": 2, "data": "563613512", "login": "botqwe", "add_info": 0 }, { "id": 41, "user_id": 2, "data": "1636807826", "login": "botqwe", "add_info": 0 }, { "id": 40, "user_id": 2, "data": "1954899097", "login": "botqwe", "add_info": 0 }, { "id": 39, "user_id": 2, "data": "1505795335", "login": "botqwe", "add_info": 0 }, { "id": 38, "user_id": 2, "data": "893351816", "login": "botqwe", "add_info": 0 } ] } ] }
+---
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 7
+Client 7 disconnected
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+Client 8 disconnected
+server new client socket 7
+New connection from 10.111.7.10 65224
+client_sock = 7
+			work with client 7
+Client 7 disconnected
+server new client socket 7
+New connection from 10.111.7.10 65229
+client_sock = 7
+			work with client 7
+
+js_in_room: 
+---
+{ "type": 4, "login": "neo", "password": "1", "user_id": 1, "visual": 0, "audio": 0, "room_id": 0, "rooms": [ { "room_id": 0, "name": "General", "access": 1, "messages": [ { "id": 52, "user_id": 2, "data": "1551901393", "login": "botqwe", "add_info": 0 }, { "id": 51, "user_id": 2, "data": "2110010672", "login": "botqwe", "add_info": 0 }, { "id": 50, "user_id": 2, "data": "530511967", "login": "botqwe", "add_info": 0 }, { "id": 49, "user_id": 2, "data": "784558821", "login": "botqwe", "add_info": 0 }, { "id": 48, "user_id": 2, "data": "2128236579", "login": "botqwe", "add_info": 0 } ] } ] }
+---
+server new client socket 8
+New connection from 10.111.7.10 65230
+client_sock = 8
+			work with client 8
+			work with client 8
+
+js_in_room: 
+---
+{ "type": 4, "login": "botqwa", "password": "ë¥—BÇ?} ≈çˆë\"ﬁCÛ_\u0005zòçñ\u0019ˆ”\u0013ÑÖ…¢\u0003", "user_id": 3, "visual": 0, "audio": 0, "room_id": 0, "rooms": [ { "room_id": 0, "name": "General", "access": 1, "messages": [ { "id": 52, "user_id": 2, "data": "1551901393", "login": "botqwe", "add_info": 0 }, { "id": 51, "user_id": 2, "data": "2110010672", "login": "botqwe", "add_info": 0 }, { "id": 50, "user_id": 2, "data": "530511967", "login": "botqwe", "add_info": 0 }, { "id": 49, "user_id": 2, "data": "784558821", "login": "botqwe", "add_info": 0 }, { "id": 48, "user_id": 2, "data": "2128236579", "login": "botqwe", "add_info": 0 } ] } ] }
+---
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+Client 8 disconnected
+server new client socket 8
+New connection from 10.111.7.10 65248
+client_sock = 8
+			work with client 8
+			work with client 8
+
+js_in_room: 
+---
+{ "type": 4, "login": "botqwa", "password": "ë¥—BÇ?} ≈çˆë\"ﬁCÛ_\u0005zòçñ\u0019ˆ”\u0013ÑÖ…¢\u0003", "user_id": 3, "visual": 0, "audio": 0, "room_id": 0, "rooms": [ { "room_id": 0, "name": "General", "access": 1, "messages": [ { "id": 252, "user_id": 3, "data": "1771024152", "login": "botqwa", "add_info": 0 }, { "id": 251, "user_id": 3, "data": "943454679", "login": "botqwa", "add_info": 0 }, { "id": 250, "user_id": 3, "data": "1358796011", "login": "botqwa", "add_info": 0 }, { "id": 249, "user_id": 3, "data": "2043046042", "login": "botqwa", "add_info": 0 }, { "id": 248, "user_id": 3, "data": "992663534", "login": "botqwa", "add_info": 0 } ] } ] }
+---
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with client 8
+			work with clien

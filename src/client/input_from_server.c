@@ -62,6 +62,7 @@ void *mx_process_input_from_server(void *i) {
     json_object *new_json;
 
     while (1) {
+        printf("while =\n");
         rc = tls_read(((t_client_info *)i)->tls_client, buf, sizeof(buf));
         if (rc == -1) {
             if (mx_reconnect_client((t_client_info *)i))

@@ -1,5 +1,6 @@
 NAME_S = uchat_server
 NAME_C = uchat
+NAME_BOT = bot
 
 SRCD = src
 INCD = inc
@@ -140,14 +141,77 @@ SRC_HELP = err_exit.c \
 	json_short.c \
 	json_short2.c \
 	json_short3.c
+
+SRC_BOT = main_client.c \
+	start_client.c \
+	start_client2.c \
+	send_message.c \
+	save_file_in_client.c \
+	send_file_from_client.c \
+	send_file_from_client2.c \
+	input_from_server.c \
+	run_functions_type.c \
+	run_functions_type1.c \
+	run_functions_type2.c \
+	run_functions_type3.c \
+	gui.c \
+	login.c \
+	reg.c \
+	general.c \
+	general_functions.c \
+	menu.c \
+	menu_functions.c \
+	create_room_menu.c \
+	create_room.c \
+	create_room_functions1.c \
+	create_room_functions2.c \
+	init_search.c \
+	init_stickers.c \
+	load_profile.c \
+	load_profile_functions.c \
+	load_profile_functions1.c \
+	load_profile_functions2.c \
+	message.c \
+	message_functions1.c \
+	message_functions2.c \
+	message_functions3.c \
+	message_functions4.c \
+	message_functions5.c \
+	message_functions6.c \
+	search.c \
+	search_functions.c \
+	search_functions1.c \
+	search_functions2.c \
+	callbacks1.c \
+	callbacks2.c \
+	callbacks3.c \
+	callbacks4.c \
+	callbacks5.c \
+	callbacks6.c \
+	callbacks7.c \
+	callbacks8.c \
+	callbacks9.c \
+	callbacks10.c \
+	callbacks11.c \
+	callbacks12.c \
+	work_with_files_list_in_client.c \
+	record_audio.c \
+	record_audio2.c \
+	play_audio.c \
+	play_audio2.c \
+	play_audio3.c \
+	send_empty_json.c \
+	mx_audio.c \
 	
 BD = src/functions/create_bd.c
 SRCS_SERVER = $(addprefix $(SRCD)/server/, $(SRC_SERVER))
 SRCS_CLIENT = $(addprefix $(SRCD)/client/, $(SRC_CLIENT))
+SRCS_BOT = $(addprefix $(SRCD)/tests/, $(SRC_BOT))
 SRCS_HELP = $(addprefix $(SRCD)/functions/, $(SRC_HELP))
 
 OBJS_SERVER = $(addprefix $(OBJD)/, $(SRC_SERVER:%.c=%.o))
 OBJS_CLIENT = $(addprefix $(OBJD)/, $(SRC_CLIENT:%.c=%.o))
+OBJS_BOT = $(addprefix $(OBJD)/, $(SRC_BOT:%.c=%.o))
 OBJS_HELP = $(addprefix $(OBJD)/, $(SRC_HELP:%.c=%.o))
 
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic -g -fsanitize=address
@@ -232,6 +296,24 @@ $(OBJD)/%.o: src/functions/%.c $(INCS)
 	@printf "\r\33[2K\033[37;1mcompile \033[0m$(<:$(SRCD)/%.c=%) "
 
 $(OBJS_CLIENT): | $(OBJD)
+
+
+bot: $(NAME_BOT) $(LIBSNDFX) $(LIBPORTAUDIOX)
+
+$(NAME_BOT): $(LMXA) $(OBJS_BOT) $(OBJS_HELP)
+	@clang $(CFLAGS) `pkg-config --cflags --libs gtk+-3.0` $(LMXA) $(LJSONA) $(LIBSNDFA) $(LIBPORTAUDIO_FLAGS) \
+	       $(LIBPORTAUDIOA) $(LIBRESSL_H) $(LIBRESSL_A) $(OBJS_BOT) $(OBJS_HELP) -o $@
+	@printf "\r\33[2K$@\t\t   \033[32;1mcreated\033[0m\n"
+
+$(OBJD)/%.o: src/tests/%.c $(INCS)
+	@clang $(CFLAGS) `pkg-config --cflags gtk+-3.0` -o $@ -c $< -I$(INCD) -I$(LMXI)
+	@printf "\r\33[2K\033[37;1mcompile \033[0m$(<:$(SRCD)/%.c=%) "
+
+$(OBJD)/%.o: src/functions/%.c $(INCS)
+	@clang $(CFLAGS) `pkg-config --cflags gtk+-3.0` -o $@ -c $< -I$(INCD) -I$(LMXI)
+	@printf "\r\33[2K\033[37;1mcompile \033[0m$(<:$(SRCD)/%.c=%) "
+
+$(OBJS_BOT): | $(OBJD)
 
 install: server client
 
