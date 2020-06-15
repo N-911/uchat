@@ -44,7 +44,7 @@ void mx_input_authentification(t_client_info *info, json_object *new_json) {
         (*info).responce = 1;
     }
 }
-
+/*
 void mx_load_history_client(t_client_info *info, json_object *new_json) {
     int room_id = mx_js_g_int(mx_js_o_o_get(new_json, "room_id"));
     t_room *room = mx_find_room(info->data->rooms, room_id);           
@@ -58,6 +58,7 @@ void mx_load_history_client(t_client_info *info, json_object *new_json) {
     }
     info->can_load = 1;
 }
+
 
 static void additional_act1 (t_client_info *info, t_room *room, 
                             json_object *new_json, t_message *tmp) {
@@ -92,3 +93,5 @@ void mx_append_message(t_client_info *info, t_room *room,
     }
     additional_act1 (info, room, new_json, tmp);
 }
+*/
+

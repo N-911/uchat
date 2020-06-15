@@ -28,7 +28,7 @@ void mx_send_callback (GtkWidget *widget, t_client_info *info) {
                             GTK_NOTEBOOK(info->data->notebook));
             t_room *room = mx_find_room_position(info->data->rooms, position);
             info->data->current_room = room->id;
-            mx_process_message_in_client(info);
+//            mx_process_message_in_client(info);
         }
         else {
             server_send(info);

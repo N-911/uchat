@@ -1,5 +1,6 @@
 #include "uchat.h"
 
+/*
 static void init_direect_message(t_client_info *info, json_object *new_json) {
     t_room *head = info->data->rooms;
     json_object *room_data = NULL;
@@ -11,6 +12,7 @@ static void init_direect_message(t_client_info *info, json_object *new_json) {
     json_object_deep_copy(mx_js_o_o_get(new_json, "room_data"), &room_data, NULL);
     mx_push_room(info, room_data, 0);
 }
+*/
 
 void mx_direct_message_client(t_client_info *info, json_object *new_json) {
     int exist = mx_js_g_int(mx_js_o_o_get(new_json,"exist"));
@@ -22,7 +24,7 @@ void mx_direct_message_client(t_client_info *info, json_object *new_json) {
                                         room->position);
     }
     else if (!exist && room == NULL) { 
-        init_direect_message (info, new_json);
+//        init_direect_message (info, new_json);
     }
 }
 

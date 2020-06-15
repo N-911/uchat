@@ -57,14 +57,9 @@ static void mx_start_reg(t_client_info *info) {
     info->password = strdup(mx_strhash("000000"));
     info->current_room = 0;
     printf("mx_start_reg\n");
-//    info->id = 1;
-
-//    char *login = strdup("chat_bot");
-//    char *password = mx_strhash("000000");
 
     json_object *json_obj = mx_create_basic_json_object(MX_REG_TYPE);
     const char *json_str;
-
     mx_js_o_o_add(json_obj, "login", mx_js_n_str(info->login));
     mx_js_o_o_add(json_obj, "password", mx_js_n_str( info->password));
     json_str = mx_js_o_to_js_str(json_obj);
@@ -74,8 +69,6 @@ static void mx_start_reg(t_client_info *info) {
 
 
 static void mx_start_avtorization(t_client_info *info) {
-//    char *password = mx_strhash("chat_bot");
-//    char *login = strdup("000000");
     printf("mx_start_avtorization\n");
     json_object *json_obj = mx_create_basic_json_object(MX_AUTH_TYPE);
     const char *json_str;
@@ -109,20 +102,21 @@ void mx_send_message_from_client(t_client_info *info) {
 }
 
 
+
 static void mx_start_tests(t_client_info *info) {
-//    int a = 0;
+    int a = 0;
     mx_start_reg(info);
     mx_start_avtorization(info);
-    sleep(200);
-    /*
-    while (a < 200) {
+    printf("test avtorization OK\n");
+    sleep(2);
+    while (a < 5) {
         a++;
         sleep(1)    ;
         mx_send_message_from_client(info);
-
     }
-*/
-
+    printf("test send message OK\n");
+    mx_send_file_from_bot(info, "uchat");
+    printf("test send file OK\n");
 }
 
 int mx_start_client(t_client_info *info) {

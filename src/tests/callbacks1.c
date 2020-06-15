@@ -47,9 +47,9 @@ void mx_enter_callback (GtkWidget *widget, t_client_info *info) {
     }
     else if(info->auth_client == 1) {
         mx_init_general (info);
-        mx_init_menu (info);
-        mx_init_search (info);
-        mx_init_create (info);
+//        mx_init_menu (info);
+//        mx_init_search (info);
+//        mx_init_create (info);
     }  
 }
 

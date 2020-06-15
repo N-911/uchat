@@ -70,7 +70,7 @@ void init_window(t_client_info *info) {
 
 int mx_login (t_client_info *info) {
     init_window(info);
-    mx_init_reg(info);
+//    mx_init_reg(info);
     mx_init_login(info);
     printf("dddddd\n");
     gtk_main();

@@ -1,5 +1,6 @@
 #include "uchat.h"
 
+/*
 static void add_room(t_client_info *info, json_object *new_json) {
     t_room *head = info->data->rooms;
     json_object *room_data = NULL;
@@ -12,6 +13,7 @@ static void add_room(t_client_info *info, json_object *new_json) {
     mx_push_room(info, room_data, 0);
 }
 
+*/
 void mx_join_room_client(t_client_info *info, json_object *new_json) {
     int user_id = mx_js_g_int(mx_js_o_o_get(new_json, "user_id"));
     int room_id = mx_js_g_int(mx_js_o_o_get(new_json, "room_id"));
@@ -19,7 +21,7 @@ void mx_join_room_client(t_client_info *info, json_object *new_json) {
 
     if (user_id == info->id) {
         if (room == NULL) {
-            add_room (info, new_json);
+//            add_room (info, new_json);
         }
     }
     else {

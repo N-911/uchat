@@ -12,11 +12,14 @@ void static pop_message_id(t_message *messages, int id) {
     }
 }
 
+/*
 static int notebook_reorder(t_note *note) {
     gtk_notebook_reorder_child(GTK_NOTEBOOK(note->notebook), 
         note->box, note->position);
     return 0;
 }
+
+*/
 
 void mx_delete_message_client(t_client_info *info, json_object *new_json) { 
     int room_id = mx_js_g_int(mx_js_o_o_get(new_json, "room_id"));
@@ -30,7 +33,7 @@ void mx_delete_message_client(t_client_info *info, json_object *new_json) {
         pop_message_id(room->messages, message_id);
     }
 }
-
+/*
 void mx_input_message(t_client_info *info, json_object *new_json) {
     int room_id = mx_js_g_int(mx_js_o_o_get(new_json, "room_id"));
     t_room *room = mx_find_room(info->data->rooms, room_id);
@@ -50,6 +53,7 @@ void mx_input_message(t_client_info *info, json_object *new_json) {
     note->position = 0;
     g_idle_add ((GSourceFunc)notebook_reorder, note);
 }
+*/
 
 t_room *mx_find_room(t_room *rooms, int id) {
    t_room *head = rooms;

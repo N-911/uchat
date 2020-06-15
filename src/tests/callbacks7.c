@@ -5,14 +5,14 @@ static void send_record_thread (void *data) {
 
     printf("new record %s\n", info->record_file);
     printf("start send record\n");
-    mx_send_file_from_client(info, info->record_file);
+//    mx_send_file_from_client(info, info->record_file);
 }
 
 
 static void *record_thread (void *data) {
     t_client_info *info = (t_client_info *)data;
 
-    info->record_file = strdup(mx_record_audio(info));
+//    info->record_file = strdup(mx_record_audio(info));
     if (info->record_file == NULL)
         pthread_exit((void *) 0);
     pthread_cleanup_push(send_record_thread, info);
@@ -56,7 +56,7 @@ void mx_choose_file_callback(GtkWidget *widget, t_client_info *info) {
     t_room *room = mx_find_room_position(info->data->rooms, position);
 
     info->data->current_room = room->id;
-    mx_send_file_from_client(info, NULL);
+//    mx_send_file_from_client(info, NULL);
     (void)widget;
 }
 

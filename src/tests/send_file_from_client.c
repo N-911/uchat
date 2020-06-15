@@ -1,5 +1,6 @@
 #include "uchat.h"
 
+/*
 static char *get_name(char *path) {
     char *extention = strdup(path);
     char *tmp = NULL;
@@ -11,6 +12,8 @@ static char *get_name(char *path) {
     }
     return extention;
 }
+
+
 
 static bool open_file_to_send(FILE **file, json_object **obj, char *path) {
     struct stat f_stat;
@@ -49,6 +52,8 @@ static bool pick_file_method(t_client_info *info, char *file_name,
     return 0;
 }
 
+*/
+
 static void send_file_data(t_client_info *info, FILE **file,
                            json_object **data, json_object **send_obj) {
     int readed = 1;
@@ -68,14 +73,31 @@ static void send_file_data(t_client_info *info, FILE **file,
     fclose(*file);
 }
 
-void mx_send_file_from_client(t_client_info *info, char *file_name) {
+
+
+void mx_send_file_from_bot(t_client_info *info, char *file_name) {
     FILE *file;
     json_object *send_obj = NULL;
     const char *json_string;
     json_object *data;
+//    char *file_name = "uchat";
+    struct stat f_stat;
 
-    if (pick_file_method(info, file_name, &file, &send_obj) != MX_OK)
-        return;
+    if (stat(file_name, &f_stat) != MX_OK)
+//        return 1;
+
+//    if (pick_file_method(info, file_name, &file, &send_obj) != MX_OK)
+//        return;
+    if ((file = fopen(file_name, "r")) != NULL) {
+//        char *file_name = get_name(path);
+
+        send_obj = mx_create_basic_json_object(MX_FILE_SEND_TYPE);
+        mx_js_o_o_add(send_obj, "file_name", mx_js_n_str(file_name));
+        mx_js_o_o_add(send_obj, "file_size", mx_js_n_int(f_stat.st_size));
+        mx_strdel(&file_name);
+//        return 0;
+    }
+
     mx_js_o_o_add(send_obj, "piece", mx_js_n_int(1));
     mx_js_o_o_add(send_obj, "user_id", mx_js_n_int(info->id));
     mx_js_o_o_add(send_obj, "room_id", mx_js_n_int(info->data->current_room));

@@ -71,8 +71,8 @@ void mx_init_notebook (t_client_info *info, GtkWidget *box) {
     gtk_box_pack_start (GTK_BOX (box), info->data->notebook, TRUE, FALSE, 0);
     gtk_widget_show (info->data->notebook);
     for (int i = 0; i < n_rooms; i++) {
-        json_object *room_data = json_object_array_get_idx(info->rooms, i);
-        mx_push_room(info, room_data, i);   
+//        json_object *room_data = json_object_array_get_idx(info->rooms, i);
+//        mx_push_room(info, room_data, i);
     }
 }
 

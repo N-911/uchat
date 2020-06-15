@@ -7,7 +7,7 @@
 int main (int argc, char **argv) {
     int a = 0;
 
-    while (a < 200) {
+    while (a < 1) {
         char name[100];
         snprintf(name, 100, "bot00%d", rand() * 32);
         printf("name =%s\n", name);
