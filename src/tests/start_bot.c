@@ -109,7 +109,7 @@ static void mx_start_tests(t_client_info *info) {
     res = mx_start_authorization(info);
 
     printf ("\r\x1B[32m test avtorization: %s \n\x1B[0m", res == 0 ? "OK" : "FAILED");
-    sleep(100);
+    sleep(250);
     /*
     sleep(2);
     while (a < 5) {

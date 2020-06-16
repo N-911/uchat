@@ -7,7 +7,7 @@
 int main (int argc, char **argv) {
     int a = 0;
 
-    while (a < 500) {
+    while (a < 750) {
         char name[100];
         snprintf(name, 100, "bot00%d", rand() * 32);
         char *ar[] = {"1", "10.111.7.10", "4444", name, NULL};
