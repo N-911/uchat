@@ -10,12 +10,12 @@ static int add_new_client(t_server_info *info, struct tls *tls, int server) {
                              &client_len);
 
     if (client_sock == -1)
-        mx_err_return2("error =", strerror(errno));
+        return mx_err_return2("add_new_client error =", strerror(errno));
     printf("server new client socket %d\n", client_sock);
     mx_print_client_address(client_address, client_len);
     EV_SET(&new_ev, client_sock, EVFILT_READ, EV_ADD,0, 0, 0);
     if (kevent(info->kq, &new_ev, 1, 0, 0, NULL) == -1)
-        mx_err_return2("error =", strerror(errno));
+        return mx_err_return2("add_new_client kevent error =", strerror(errno));
     tls_socket = NULL;
     if ((mx_make_tls_connect(tls, &tls_socket, client_sock)) != 0)
         return 1;
@@ -37,7 +37,7 @@ static int work_with_client(t_server_info *info, struct kevent new_ev) {
         rc = mx_tls_worker(mx_find_socket_elem(info->socket_list,
                                                new_ev.ident), info);
         if (rc == -1)
-            mx_err_return2("error =", strerror(errno));
+            return mx_err_return2("work_with_client error =", strerror(errno));
     }
     return 0;
 }
@@ -46,13 +46,13 @@ static int config_kevent(t_server_info *info, int server) {
     struct kevent new_ev;
 
     if ((info->kq = kqueue()) == -1) {
-        printf("error = %s\n", strerror(errno));
+        printf("config_kevent error = %s\n", strerror(errno));
         return -1;
     }
     // add server sock in struct kevent
     EV_SET(&new_ev, server, EVFILT_READ, EV_ADD, 0, 0, 0);
     if (kevent(info->kq, &new_ev, 1, 0, 0, NULL) == -1) {
-        printf("error = %s\n", strerror(errno));
+        printf("config_kevent error = %s\n", strerror(errno));
         return -1;
     }
     return 0;
@@ -70,12 +70,12 @@ static void server_loop(t_server_info *info, int server, struct tls *tls) {
         if (event == 0)  // check new event
             continue;
         if (event == -1) {
-            printf("error = %s\n", strerror(errno));
+            printf("server_loop error = %s\n", strerror(errno));
             break;
         }
         if (new_ev.ident == (uintptr_t) server) {// if new con - add new clt
-            if ((add_new_client(info, tls, server)) != 0)
-                break;
+            if ((add_new_client(info, tls, server)) != 0) {}
+//                break;
         }
         else {// if read from client
             if ((work_with_client(info, new_ev)) != 0)

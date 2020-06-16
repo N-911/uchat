@@ -11,7 +11,7 @@ static int response_loop(int socket, struct tls *tls) {
         bytes_received = socket ? recv(socket, p, end - p, 0)
                                 : tls_read(tls, p, end - p);
         if (bytes_received < 1)
-            mx_err_return("Connection dropped.\n");
+            return mx_err_return("Connection dropped.\n");
         p += bytes_received;
         *p = 0;
         if (p == end)
@@ -36,7 +36,7 @@ int mx_connect_to_server(const char *hostname, const char *port) {
     server = socket(peer_address->ai_family,
                     peer_address->ai_socktype, peer_address->ai_protocol);
     if (server == -1)
-        mx_err_return(strerror(errno));
+        return mx_err_return(strerror(errno));
     if (connect(server, peer_address->ai_addr, peer_address->ai_addrlen)) {
         fprintf(stderr, "connect() failed. (%s)\n", strerror(errno));
         return 1;

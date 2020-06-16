@@ -16,10 +16,10 @@ static int set_rl(struct rlimit rl, struct sigaction sa) {
 static int open_log(int *fd ) {
     if ((*fd = open("log_file", O_CREAT | O_WRONLY | O_TRUNC | O_APPEND,
                    S_IRWXU)) == -1)
-        mx_err_return("open error\n");
+        return mx_err_return("open error\n");
     if (dup2(*fd, STDOUT_FILENO) == -1 || dup2(*fd, STDERR_FILENO) == -1) {
         close(*fd);
-        mx_err_return("dup error\n");
+        return mx_err_return("dup error\n");
     }
     close(STDIN_FILENO);
     close(STDERR_FILENO);
@@ -36,9 +36,9 @@ int mx_set_daemon(void) {
     memset(&rl, 0, sizeof(rl));
     memset(&sa, 0, sizeof(sa));
     if (getrlimit(RLIMIT_NOFILE, &rl) < 0)
-        mx_err_return("невозможно получить максимальный номер дескриптора");
+        return mx_err_return("невозможно получить максимальный номер дескриптора");
     if((pid = fork()) < 0)
-        mx_err_return("error fork");
+        return mx_err_return("error fork");
     if (pid > 0)
         exit(0);
     umask(0);

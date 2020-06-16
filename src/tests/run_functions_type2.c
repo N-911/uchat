@@ -38,7 +38,6 @@ void mx_input_authentification(t_client_info *info, json_object *new_json) {
             json_object *rooms = NULL;
             json_object_deep_copy(mx_js_o_o_get(new_json, "rooms"), &rooms, NULL);
             info->rooms = rooms;
-
         }
         else
             (*info).auth_client = 0;

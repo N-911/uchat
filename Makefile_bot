@@ -227,11 +227,10 @@ clean:
 	@printf "$(OBJD)\t\t   \033[31;1mdeleted\033[0m\n"
 
 uninstall: clean
-	@make -sC ./libjson uninstall
-	@make -sC ./libsndfile uninstall
-	@make -sC $(LBMXD) uninstall
-	@rm -rf $(NAME_S) $(NAME_BOT)
-	@printf "$(NAME_S)\t   \033[31;1muninstalled\033[0m\n"
-	@printf "$(NAME_C)\t\t   \033[31;1muninstalled\033[0m\n"
+	#@make -sC ./libjson uninstall
+	#@make -sC ./libsndfile uninstall
+	#@make -sC $(LBMXD) uninstall
+	@rm -rf $(NAME_BOT)
+	@printf "$(NAME_BOT)\t   \033[31;1muninstalled\033[0m\n"
 
 reinstall: uninstall install

@@ -5,7 +5,7 @@ static int send_mail_connect(t_mail * mail) {
 
     printf("Connecting to host: %s: %s\n", mail->hostname, "587");
     if ((server = mx_connect_to_server(mail->hostname, "587")) == 1)
-        mx_err_return("failed connect ot hostname\n");
+        return mx_err_return("failed connect ot hostname\n");
     if ((mx_wait_on_response(server, NULL, 220)) != 0)
         return 1;
     mx_send_format(server, "EHLO client.example.com\r\n");

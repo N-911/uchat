@@ -7,10 +7,9 @@
 int main (int argc, char **argv) {
     int a = 0;
 
-    while (a < 30) {
+    while (a < 500) {
         char name[100];
         snprintf(name, 100, "bot00%d", rand() * 32);
-//        printf("name =%s\n", name);
         char *ar[] = {"1", "10.111.7.10", "4444", name, NULL};
         pid_t pid;
         pid = fork();
