@@ -1,5 +1,11 @@
 #include "uchat.h"
 
+void mx_err_exit(const char *err_msg) {
+    mx_printerr(err_msg);
+    exit(1);
+}
+
+
 int main(int argc, const char **argv) {
     if (argc < 3) {
         mx_printerr("usage: uchat [ip_adress] [port]\n");
@@ -11,15 +17,15 @@ int main(int argc, const char **argv) {
     int sock;
     int err;
     int enable = 1;
-    struct tls *tls = NULL;
-    struct tls_config *config = NULL;
+    struct tls *tls_client1 = NULL;
 
     if (tls_init() < 0) {
         printf("tls_init error\n");
         exit(1);
     }
-    config = tls_config_new();
-    tls = tls_client();
+    tls_client1 = tls_client();
+
+    /*
     tls_config_insecure_noverifycert(config);
     tls_config_insecure_noverifyname(config);
 
@@ -32,8 +38,30 @@ int main(int argc, const char **argv) {
         printf("tls_config_set_cert_file error\n");
         exit(1);
     }
+*/
 
-    tls_configure(tls, config);
+    struct tls_config *config = NULL;
+
+    if ((config = tls_config_new()) == NULL)
+        mx_err_exit("unable to allocate config");
+//    if ((tls_client1 = tls_client1()) == NULL)
+//        mx_err_exit("tls client creation failed");
+    tls_config_insecure_noverifycert(config);
+    tls_config_insecure_noverifyname(config);
+    if (tls_config_set_dheparams(config, "auto") != 0)
+        mx_err_exit(tls_config_error(config));
+    if (tls_config_set_key_file(config, "./CA3/client.key") != 0)
+        mx_err_exit(tls_config_error(config));
+    if (tls_config_set_cert_file(config, "./CA3/client.pem") != 0)
+        mx_err_exit(tls_config_error(config));
+    if (tls_configure(tls_client1, config) != 0) {
+        printf("tls_configure error: \n");
+        mx_err_exit(tls_error(tls_client1));
+    }
+
+    tls_config_free(config);
+
+
 /************************************/
     memset(&hints, 0, sizeof(hints));
     hints.ai_socktype = SOCK_STREAM;
@@ -64,27 +92,25 @@ int main(int argc, const char **argv) {
     freeaddrinfo(peer_address);
     printf("connect TCP sock =%d\n", sock);
 
-//    if(tls_connect(tls, argv[1], argv[2]) < 0) {
-//        printf("tls_connect error\n");
-//        printf("%s\n", tls_error(tls));
-//        exit(1);
-//    }
-
-    if (tls_connect_socket(tls, sock, "uchat_server") < 0) {
+    if (tls_connect_socket(tls_client1, sock, "uchat") < 0) {
         printf("tls_connect error\n");
-        printf("%s\n", tls_error(tls));
+        printf("%s\n", tls_error(tls_client1));
         exit(1);
     }
     printf("tls connect +\n");
-    if (tls_handshake(tls) < 0) {
+
+    if (tls_handshake(tls_client1) < 0) {
         printf("tls_handshake error\n");
-        printf("%s\n", tls_error(tls));
+        printf("%s\n", tls_error(tls_client1));
         exit(1);
     }
-    mx_report_tls_client(tls, "client");
+    mx_report_tls_client(tls_client1, "client");
     printf("\n");
-    tls_write(tls, "TLS connect", strlen("TLS connect"));
+
+    tls_write(tls_client1, "TLS connect", strlen("TLS connect"));
 //    printf("tls version %s\n", tls_conn_version(tls));
+
+
     char bufs[1000], bufc[1000];
     struct pollfd pfd[2];
     ssize_t rc = 0;
@@ -101,17 +127,17 @@ int main(int argc, const char **argv) {
         poll(pfd, 2, -1);
         if (pfd[0].revents & POLLIN) {
             int q = read(0, bufc, 1000);
-            tls_write(tls, bufc, q);
+            tls_write(tls_client1, bufc, q);
         }
 
         if (pfd[1].revents & POLLIN) {
-            if ((rc = tls_read(tls, bufs, 1000)) <= 0) break;
+            if ((rc = tls_read(tls_client1, bufs, 1000)) <= 0) break;
             printf("Mesage (%lu): %s\n", rc, bufs);
         }
 
     }
-    tls_close(tls);
-    tls_free(tls);
+    tls_close(tls_client1);
+    tls_free(tls_client1);
     tls_config_free(config);
     printf("Closing socket...\n");
     close(sock);
@@ -136,7 +162,7 @@ int main(int argc, const char **argv) {
         exit(1);
     }
     config = tls_config_new();
-    tls = tls_client();
+    tls = tls_client1();
 //    tls_config_verify_client_optional(config);
     tls_config_insecure_noverifycert(config);
     tls_config_insecure_noverifyname(config);
@@ -164,7 +190,7 @@ int main(int argc, const char **argv) {
         printf("%s\n", tls_error(tls));
         exit(1);
     }
-    mx_report_tls_client(tls, "client");
+    mx_report_tls_client1(tls, "client");
 
 //    tls_write(tls, "TLS client", strlen("TLS client"));
 //    printf("tls version %s\n", tls_conn_version(tls));
