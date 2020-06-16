@@ -32,7 +32,6 @@ int mx_connect_client(t_client_info *info) {
 
     memset(&hints, 0, sizeof(hints));
     hints.ai_socktype = SOCK_STREAM;
-   printf("argv[2] %s\n", info->argv[2]);
     if ((err = getaddrinfo(info->ip, info->argv[2],
                            &hints, &peer_address)) != 0) {
         fprintf(stderr, "getaddrinfo() failed. (%s)\n", gai_strerror(err));
@@ -52,7 +51,7 @@ static void clean_client(t_client_info *info) {
 
 
 
-static void mx_start_reg(t_client_info *info) {
+static int mx_start_reg(t_client_info *info) {
 //    info->login = strdup(info->argv[3]);
     info->password = strdup(mx_strhash("000000"));
     info->current_room = 0;
@@ -64,11 +63,11 @@ static void mx_start_reg(t_client_info *info) {
     mx_js_o_o_add(json_obj, "password", mx_js_n_str( info->password));
     json_str = mx_js_o_to_js_str(json_obj);
     tls_send(info->tls_client, json_str, strlen(json_str));
+    return 0;
 }
 
 
-
-static void mx_start_avtorization(t_client_info *info) {
+static int mx_start_authorization(t_client_info *info) {
     printf("mx_start_avtorization\n");
     json_object *json_obj = mx_create_basic_json_object(MX_AUTH_TYPE);
     const char *json_str;
@@ -77,8 +76,8 @@ static void mx_start_avtorization(t_client_info *info) {
     mx_js_o_o_add(json_obj, "password", mx_js_n_str(info->password));
     json_str = mx_js_o_to_js_str(json_obj);
     tls_send(info->tls_client, json_str, strlen(json_str));
+    return 0;
 }
-
 
 
 void mx_send_message_from_client(t_client_info *info) {
@@ -101,22 +100,27 @@ void mx_send_message_from_client(t_client_info *info) {
     json_object_put(obj);
 }
 
-
-
 static void mx_start_tests(t_client_info *info) {
-    int a = 0;
-    mx_start_reg(info);
-    mx_start_avtorization(info);
-    printf("test avtorization OK\n");
+//    int a = 0;
+    int res;
+    res = mx_start_reg(info);
+    printf ("\r\x1B[32m test registration: %s\n\x1B[0m", res == 0 ? "OK" : "FAILED");
+    res = 0;
+    res = mx_start_authorization(info);
+
+    printf ("\r\x1B[32m test avtorization: %s \n\x1B[0m", res == 0 ? "OK" : "FAILED");
+    sleep(100);
+    /*
     sleep(2);
     while (a < 5) {
         a++;
-        sleep(1)    ;
+        sleep(1);
         mx_send_message_from_client(info);
     }
     printf("test send message OK\n");
     mx_send_file_from_bot(info, "uchat");
     printf("test send file OK\n");
+     */
 }
 
 int mx_start_client(t_client_info *info) {

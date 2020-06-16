@@ -22,9 +22,6 @@ static void init_info(t_client_info *info, int argc, char *argv[]) {
 int main(int argc, char **argv) {
     t_client_info *info = NULL;
 
-    for (int i = 0; i < argc; i++)
-        printf("argv[%d] = %s\n", i, argv[i]);
-
 //    if (argc != 3) {
 //        mx_printerr("usage: uchat [ip_adress] [port]\n");
 //        return -1;
@@ -36,7 +33,6 @@ int main(int argc, char **argv) {
     create_download_folder();
     if (mx_start_client(info)) {
         printf("error = %s\n", strerror(errno));
-        // info clean and close
         return -1;
     }
     printf("exit client\n");
